@@ -44,27 +44,64 @@ function turnOff() {
 
 function preparePizza(next) {
   console.log('preparing...');
-  setTimeout(() => next(), 1000)
+  // setTimeout(() => next(null), 1000)
+  return new Promise(resolve => setTimeout(resolve, 1000))
 }
 
 function addToppings(next){
   console.log('adding toppings...');
-  setTimeout(() => {next()}, 1000)
+  // setTimeout(() => next('Out of cheese :('), 1000)
+  return new Promise(resolve => setTimeout(resolve, 1000))
 }
 
 function bake(next){
   console.log('baking...');
-  setTimeout(() => next(), 1000)
+  // setTimeout(() => next(null), 1000)
+  return new Promise(resolve => setTimeout(resolve, 1000))
 }
 
-function deliver() {
-  console.log('finally delivered.');
+function deliver(err) {
+  if (err) console.log(`oops!, ${err}`);
+  else console.log('finally delivered.');  
 }
 
-preparePizza(() => {
-  addToppings(() => {
-    bake(() => {
-      deliver()
-    })
-  })
-})
+// preparePizza((err) => {
+//   if (err) return deliver(err)
+//   addToppings((err) => {
+//     if (err) return deliver(err)
+//     bake((err) => {
+//       if (err) return deliver(err)
+//       deliver()
+//     })
+//   })
+// })
+
+preparePizza()
+  .then(addToppings).then(bake).then(deliver).catch(err => console.error('Oops, ${err}'))
+
+//__________________________________________________________________________
+
+
+// function sayHello(name) {
+//   return `Hello, ${name}!`;
+// }
+
+let sayHello = name => `Hello, ${name}!`
+console.log(sayHello('Labeeb'));
+
+// function sum(a, b) {
+//   const result = a + b;
+//   return result;
+// }
+
+
+let sum = (a, b) => {
+  const result = a+b 
+  return result
+}
+
+console.log(sum(0, 7))
+
+//______________________________________________________________
+
+

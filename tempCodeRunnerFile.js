@@ -1,7 +1,0 @@
-boilingMilk(() => {
-//   addTeaPowder(() => {
-//     addSugar(() => {
-//       turnOff()
-//     })
-//   })
-// })
