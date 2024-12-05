@@ -103,3 +103,13 @@ let sum = (a, b) => {
 console.log(sum(0, 7))
 
 //______________________________________________________________
+// remove vowels from a string
+
+let vowels = 'aeiou'
+
+function removeVowels(str) {
+return str.split('').filter(char => !vowels.includes(char)).join('')
+}
+
+console.log(removeVowels('labeeb'))
+
