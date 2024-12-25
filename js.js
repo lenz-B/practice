@@ -113,3 +113,20 @@ return str.split('').filter(char => !vowels.includes(char)).join('')
 
 console.log(removeVowels('labeeb'))
 
+//_______________________________________________________________
+// remove adjacent array old elements
+
+function removeOddElements(arr){
+  let result = []
+  for (let i = 0; i < arr.length; i++){
+    let prev = arr[i -1]
+    let next = arr[i +1]
+
+    if (arr[i] % 2 !== 0 && ((prev % 2 === 0 || prev === undefined) && (next % 2 === 0 || next === undefined))) result.push(arr[i])
+    else if (arr[i] % 2 === 0) result.push(arr[i])
+  }
+return result
+}
+
+let arr = [1,2,3,11,5,8,6,7,18,9,15]
+console.log('gh: ',removeOddElements(arr))
