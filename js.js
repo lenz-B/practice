@@ -5,7 +5,7 @@ function boilingMilk(callback) {
   setTimeout(() => {
     console.log('add tea powder');
     callback()    
-  }, 1000);  
+  }, 1000)
 }
 
 function addTeaPowder(callback) {
